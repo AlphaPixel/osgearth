@@ -25,7 +25,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ImageButton;
-
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import java.io.File;
 
 public class osgViewer extends Activity implements View.OnTouchListener, View.OnKeyListener
@@ -48,6 +49,7 @@ public class osgViewer extends Activity implements View.OnTouchListener, View.On
 	//Ui elements
     EGLview mView;
     Button uiCenterViewButton;
+	Button uiLoadModelButton;
     
     //Dialogs
     AlertDialog removeLayerDialog;
@@ -60,12 +62,15 @@ public class osgViewer extends Activity implements View.OnTouchListener, View.On
         setContentView(R.layout.ui_layout_gles);
         
         // get the gl view and attach touch listeners
-		mView= (EGLview) findViewById(R.id.surfaceGLES);
+		mView = (EGLview) findViewById(R.id.surfaceGLES);
 		mView.setOnTouchListener(this);
 		mView.setOnKeyListener(this);
 	        
 	    uiCenterViewButton = (Button) findViewById(R.id.uiButtonCenter);
 	    uiCenterViewButton.setOnClickListener(uiListenerCenterView);
+
+		uiLoadModelButton = (Button) findViewById(R.id.uiLoadModel);
+	    uiLoadModelButton.setOnClickListener(uiLoadModel);
     }
     
     @Override protected void onPause() {
@@ -229,6 +234,14 @@ public class osgViewer extends Activity implements View.OnTouchListener, View.On
         	//Log.d(TAG, "Center View");
         	osgNativeLib.keyboardDown(32);
         	osgNativeLib.keyboardUp(32);
+        }
+    };
+
+    //Ui Listeners
+    OnClickListener uiLoadModel = new OnClickListener() {
+        public void onClick(View v) {
+        	//Log.d(TAG, "Center View");
+        	osgNativeLib.loadObject("/sdcard/Download/readymap.earth");
         }
     };
     

@@ -17,6 +17,5 @@ public class osgNativeLib {
     public static native void 		mouseMoveEvent(float x,float y);
     public static native void 		keyboardDown(int key);
     public static native void 		keyboardUp(int key);
-
-
+    public static native void       loadObject(String path);
 }

@@ -50,26 +50,6 @@ void OsgMainApp::initOsgWindow(int x,int y,int width,int height)
 	_root = new osg::Group();
  	_viewer->setSceneData(_root.get());
 
-    loadObject("/sdcard/Download/readymap.earth");
-/*    
-	std::string filepath = "/sdcard/Download/readymap.earth";
-	osg::Node* node = osgDB::readNodeFile(filepath);
-
-	if(!node) {
-		OSG_ALWAYS << "Unable to load an earth file from the command line." << std::endl;
-		return;
-	}
-
-	osg::ref_ptr<osgEarth::Util::MapNode> mapNode = osgEarth::Util::MapNode::findMapNode(node);
-
-	if(!mapNode.valid()) {
-		OSG_ALWAYS << "Loaded scene graph does not contain a MapNode - aborting" << std::endl;
-
-		return;
-	}
-
-	_viewer->setSceneData(mapNode.get());
-*/
     _viewer->realize();
 
     _initialized = true;
