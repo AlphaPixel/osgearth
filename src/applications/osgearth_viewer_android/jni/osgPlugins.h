@@ -6,7 +6,9 @@
 
 USE_OSGPLUGIN(osg)
 USE_OSGPLUGIN(curl)
-//USE_OSGPLUGIN(tiff)
+USE_OSGPLUGIN(tiff)
+USE_OSGPLUGIN(osgearth_gdal)
+USE_OSGPLUGIN(osgearth_mbtiles)
 USE_OSGPLUGIN(jpeg)
 USE_OSGPLUGIN(earth)
 USE_OSGPLUGIN(osgearth_tms)

@@ -63,6 +63,7 @@ LOCAL_LDFLAGS   += -L$(NDK_ROOT)/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-
 -losgdb_osgearth_colorramp \
 -losgdb_osgearth_debug \
 -losgdb_osgearth_detail \
+-losgdb_osgearth_mbtiles \
 -losgdb_earth \
 -losgdb_osgearth_engine_mp \
 -losgdb_osgearth_engine_rex \
@@ -111,9 +112,11 @@ LOCAL_LDFLAGS   += -L$(NDK_ROOT)/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-
 -losgdb_obj \
 -losgdb_shp \
 -losgdb_rot \
+-losgdb_gdal \
 -losgdb_scale \
 -losgdb_trans \
 -losgdb_jpeg \
+-losgdb_tiff \
 -losgdb_freetype \
 -losgdb_osgterrain \
 -losgdb_osg \
@@ -161,6 +164,8 @@ LOCAL_LDFLAGS   += -L$(NDK_ROOT)/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-
 -lcurl \
 -L $(GDAL_LIBDIR) \
 -lgdal \
+-L $(TIFF_LIBDIR) \
+-ltiff \
 -L $(GEOS_LIBDIR) \
 -lgeos \
 -L $(PROJ_LIBDIR) \

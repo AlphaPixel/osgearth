@@ -107,12 +107,20 @@ static const char gFragmentShader[] =
     "}                                         \n";
 
 
-class OsgMainApp{
+class OsgMainApp
+{
 private:
     osg::ref_ptr<osgViewer::Viewer> _viewer;
 
     bool _initialized;
 
+    osg::ref_ptr<osg::Group> _root;
+    std::vector<Model> _vModels;
+    std::vector<Model> _vModelsToLoad;
+    std::vector<Model> _vModelsToDelete;
+
+    void loadModels();
+    void deleteModels();    
 
 public:
     OsgMainApp();
@@ -128,6 +136,8 @@ public:
     void mouseMoveEvent(float x,float y);
     void keyboardDown(int key);
     void keyboardUp(int key);
+
+    void loadObject(std::string filePath);    
 };
 
 
