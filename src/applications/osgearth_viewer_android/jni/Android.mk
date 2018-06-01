@@ -4,15 +4,16 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := osgNativeLib
-### Main Install dir
-NDK_ROOT                := /Users/thomashogarth/Library/Android/sdk/ndk-bundle
-OSG_ANDROID_DIR		:= /Users/thomashogarth/Documents/AlphaPixel/osgEarth-Droid/osg/
-OSGEARTH_ANDROID_DIR	:= /Users/thomashogarth/Documents/AlphaPixel/osgEarth-Droid/osgearth/
-THIRDPARTY_ANDROID_DIR	:= /Users/thomashogarth/Documents/AlphaPixel/osgEarth-Droid/osg/3rdParty
 
-OSG_LIBDIR 			:= $(OSG_ANDROID_DIR)/lib
+# NOTE: The below may be overridden by environment variables if required.
+NDK_ROOT                ?= /PutYourPathHere/Android/sdk/ndk-bundle
+OSG_ANDROID_DIR			?= /PutYourPathHere/osg/
+THIRDPARTY_ANDROID_DIR	?= /PutYourPathHere/osg/3rdParty/
+OSGEARTH_ANDROID_DIR	?= /PutYourPathHere/osgearth/
+
+OSG_LIBDIR 				:= $(OSG_ANDROID_DIR)/lib
 OSGEARTH_LIBDIR 		:= $(OSGEARTH_ANDROID_DIR)/lib
-PNG_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/libpng/obj/local/armeabi
+PNG_LIBDIR 				:= $(THIRDPARTY_ANDROID_DIR)/build/libpng/obj/local/armeabi
 TIFF_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/libtiff/obj/local/armeabi
 GDAL_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/gdal/obj/local/armeabi
 GEOS_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/geos/obj/local/armeabi
@@ -25,16 +26,16 @@ ZLIB_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/zlib/obj/local/armeabi
 ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
 	LOCAL_ARM_NEON 	:= true
 	OSG_LIBDIR 			:= $(OSG_ANDROID_DIR)/lib
-	OSGEARTH_LIBDIR 		:= $(OSGEARTH_ANDROID_DIR)/lib
+	OSGEARTH_LIBDIR 	:= $(OSGEARTH_ANDROID_DIR)/lib/osgPlugins-3.7.0
 	PNG_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/libpng/obj/local/armeabi-v7a
-	TIFF_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/libtiff/obj/local/armeabi-v7a
-	GDAL_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/gdal/obj/local/armeabi-v7a
-	GEOS_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/geos/obj/local/armeabi-v7a
-	PROJ_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/proj/obj/local/armeabi-v7a
-	CURL_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/curl/obj/local/armeabi-v7a
-	FREETYPE_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/freetype/obj/local/armeabi-v7a
-	SQLITE_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/sqlite/obj/local/armeabi-v7a
-	ZLIB_LIBDIR 			:= $(THIRDPARTY_ANDROID_DIR)/build/zlib/obj/local/armeabi-v7a
+	TIFF_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/libtiff/obj/local/armeabi-v7a
+	GDAL_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/gdal/obj/local/armeabi-v7a
+	GEOS_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/geos/obj/local/armeabi-v7a
+	PROJ_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/proj/obj/local/armeabi-v7a
+	CURL_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/curl/obj/local/armeabi-v7a
+	FREETYPE_LIBDIR 	:= $(THIRDPARTY_ANDROID_DIR)/build/freetype/obj/local/armeabi-v7a
+	SQLITE_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/sqlite/obj/local/armeabi-v7a
+	ZLIB_LIBDIR 		:= $(THIRDPARTY_ANDROID_DIR)/build/zlib/obj/local/armeabi-v7a
 endif
 
 ### Add all source file names to be included in lib separated by a whitespace
